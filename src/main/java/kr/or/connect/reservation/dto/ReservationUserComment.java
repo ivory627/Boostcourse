@@ -12,21 +12,7 @@ public class ReservationUserComment {
 	private String comment;
 	private Date createDate;
 	private Date modifyDate;
-	public ReservationUserComment() {
-		super();
-	}
-	public ReservationUserComment(int id, int productId, int reservationInfoId, int userId, BigDecimal score,
-			String comment, Date createDate, Date modifyDate) {
-		super();
-		this.id = id;
-		this.productId = productId;
-		this.reservationInfoId = reservationInfoId;
-		this.userId = userId;
-		this.score = score;
-		this.comment = comment;
-		this.createDate = createDate;
-		this.modifyDate = modifyDate;
-	}
+	
 	public int getId() {
 		return id;
 	}

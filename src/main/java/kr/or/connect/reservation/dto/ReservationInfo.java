@@ -11,21 +11,7 @@ public class ReservationInfo {
 	private int cancelFlag;
 	private Date createDate;
 	private Date modifyDate;
-	public ReservationInfo() {
-		super();
-	}
-	public ReservationInfo(int id, int productId, int displayInfoId, int userId, Date reservationDate, int cancelFlag,
-			Date createDate, Date modifyDate) {
-		super();
-		this.id = id;
-		this.productId = productId;
-		this.displayInfoId = displayInfoId;
-		this.userId = userId;
-		this.reservationDate = reservationDate;
-		this.cancelFlag = cancelFlag;
-		this.createDate = createDate;
-		this.modifyDate = modifyDate;
-	}
+	
 	public int getId() {
 		return id;
 	}

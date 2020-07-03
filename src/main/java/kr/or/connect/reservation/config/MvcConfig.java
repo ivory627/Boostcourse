@@ -18,7 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableWebMvc
 @EnableSwagger2
-@ComponentScan(basePackages = {"kr.co.connect.reservation.controller"})
+@ComponentScan(basePackages = {"kr.or.connect.reservation.controller"})
 public class MvcConfig implements WebMvcConfigurer {
 	// DefaultServlet에 대한 설정을 합니다.
 	// DispatcherServlet이 처리하지 못하는 URL은 DefaultServlet이 처리하게 됩니다.

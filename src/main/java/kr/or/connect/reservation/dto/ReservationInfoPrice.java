@@ -5,16 +5,7 @@ public class ReservationInfoPrice {
 	private int reservationInfoId;
 	private int productPriceId;
 	private int count;
-	public ReservationInfoPrice() {
-		super();
-	}
-	public ReservationInfoPrice(int id, int reservationInfoId, int productPriceId, int count) {
-		super();
-		this.id = id;
-		this.reservationInfoId = reservationInfoId;
-		this.productPriceId = productPriceId;
-		this.count = count;
-	}
+	
 	public int getId() {
 		return id;
 	}

@@ -4,16 +4,7 @@ public class UserRole {
 	private int id;
 	private int userId;
 	private String roleName;
-	public UserRole() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public UserRole(int id, int userId, String roleName) {
-		super();
-		this.id = id;
-		this.userId = userId;
-		this.roleName = roleName;
-	}
+	
 	public int getId() {
 		return id;
 	}

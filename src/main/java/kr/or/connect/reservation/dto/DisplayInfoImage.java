@@ -4,15 +4,7 @@ public class DisplayInfoImage {
 	private int id;
 	private int displayInfoId;
 	private int fileId;
-	public DisplayInfoImage() {
-		super();
-	}
-	public DisplayInfoImage(int id, int displayInfoId, int fileId) {
-		super();
-		this.id = id;
-		this.displayInfoId = displayInfoId;
-		this.fileId = fileId;
-	}
+	
 	public int getId() {
 		return id;
 	}

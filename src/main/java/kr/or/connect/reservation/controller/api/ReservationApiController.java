@@ -1,6 +1,7 @@
 package kr.or.connect.reservation.controller.api;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,14 +19,14 @@ import kr.or.connect.reservation.dto.Category;
 import kr.or.connect.reservation.dto.DisplayInfo;
 import kr.or.connect.reservation.dto.Promotion;
 import kr.or.connect.reservation.dto.ReservationUserComment;
-import kr.or.connect.reservation.service.ReservationService;
+import kr.or.connect.reservation.service.CategoryService;
 
 @RestController
 @RequestMapping(path="/api")
 public class ReservationApiController {
 	
 	@Autowired
-	private ReservationService reservationService;
+	private CategoryService categoryService;
 	
 	@ApiOperation(value="카테고리 목록 구하기")
 	@ApiResponses({//Response Message에 대한 Swagger설명
@@ -34,9 +35,13 @@ public class ReservationApiController {
 	})
 	@GetMapping("/categories")
 	public Map<String,Object> categoryList() {
-		List<Category> categoryList = reservationService.getCategories();
+		List<Category> categoryList = categoryService.getCategories();
 		
-		return categoryList;
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("size", categoryList.size());
+		map.put("items", categoryList);
+		
+		return map;
 	}
 	
 	@ApiOperation(value="상품 목록 구하기")

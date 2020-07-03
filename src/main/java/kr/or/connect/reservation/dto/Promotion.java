@@ -3,14 +3,7 @@ package kr.or.connect.reservation.dto;
 public class Promotion {
 	private int id;
 	private int productId;
-	public Promotion() {
-		super();
-	}
-	public Promotion(int id, int productId) {
-		super();
-		this.id = id;
-		this.productId = productId;
-	}
+	
 	public int getId() {
 		return id;
 	}

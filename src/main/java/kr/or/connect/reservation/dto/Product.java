@@ -10,20 +10,7 @@ public class Product {
 	private String event;
 	private Date createDate;
 	private Date modifyDate;
-	public Product() {
-		super();
-	}
-	public Product(int id, int categoryId, String description, String content, String event, Date createDate,
-			Date modifyDate) {
-		super();
-		this.id = id;
-		this.categoryId = categoryId;
-		this.description = description;
-		this.content = content;
-		this.event = event;
-		this.createDate = createDate;
-		this.modifyDate = modifyDate;
-	}
+	
 	public int getId() {
 		return id;
 	}

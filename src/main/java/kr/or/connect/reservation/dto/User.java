@@ -11,21 +11,6 @@ public class User {
 	private Date create_date;
 	private Date modify_date;
 
-	public User() {
-		super();
-	}
-
-	public User(int id, String name, String password, String email, String phone, Date create_date, Date modify_date) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.password = password;
-		this.email = email;
-		this.phone = phone;
-		this.create_date = create_date;
-		this.modify_date = modify_date;
-	}
-
 	public int getId() {
 		return id;
 	}

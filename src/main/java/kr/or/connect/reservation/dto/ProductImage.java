@@ -5,16 +5,7 @@ public class ProductImage {
 	private int productId;
 	private String type;
 	private int fileId;
-	public ProductImage() {
-		super();
-	}
-	public ProductImage(int id, int productId, String type, int fileId) {
-		super();
-		this.id = id;
-		this.productId = productId;
-		this.type = type;
-		this.fileId = fileId;
-	}
+	
 	public int getId() {
 		return id;
 	}

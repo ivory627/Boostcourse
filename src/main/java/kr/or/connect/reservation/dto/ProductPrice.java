@@ -11,20 +11,7 @@ public class ProductPrice {
 	private BigDecimal discountRate;
 	private Date createDate;
 	private Date modifyDate;
-	public ProductPrice() {
-		super();
-	}
-	public ProductPrice(int id, int productId, String priceTypeName, int price, BigDecimal discountRate,
-			Date createDate, Date modifyDate) {
-		super();
-		this.id = id;
-		this.productId = productId;
-		this.priceTypeName = priceTypeName;
-		this.price = price;
-		this.discountRate = discountRate;
-		this.createDate = createDate;
-		this.modifyDate = modifyDate;
-	}
+	
 	public int getId() {
 		return id;
 	}

@@ -10,22 +10,6 @@ public class FileInfo {
 	private int deleteFlag;
 	private Date createDate;
 	private Date modifyDate;
-	
-	public FileInfo() {
-		super();
-	}
-
-	public FileInfo(int id, String fileName, String saveFileName, String contentType, int deleteFlag, Date createDate,
-			Date modifyDate) {
-		super();
-		this.id = id;
-		this.fileName = fileName;
-		this.saveFileName = saveFileName;
-		this.contentType = contentType;
-		this.deleteFlag = deleteFlag;
-		this.createDate = createDate;
-		this.modifyDate = modifyDate;
-	}
 
 	public int getId() {
 		return id;

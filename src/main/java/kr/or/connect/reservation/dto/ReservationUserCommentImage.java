@@ -5,16 +5,7 @@ public class ReservationUserCommentImage {
 	private int reservationInfoId;
 	private int reservationUserCommentId;
 	private int fileId;
-	public ReservationUserCommentImage() {
-		super();
-	}
-	public ReservationUserCommentImage(int id, int reservationInfoId, int reservationUserCommentId, int fileId) {
-		super();
-		this.id = id;
-		this.reservationInfoId = reservationInfoId;
-		this.reservationUserCommentId = reservationUserCommentId;
-		this.fileId = fileId;
-	}
+	
 	public int getId() {
 		return id;
 	}

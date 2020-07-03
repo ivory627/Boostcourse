@@ -14,24 +14,7 @@ public class DisplayInfo {
 	private String email;
 	private Date createDate;
 	private Date modifyDate;
-	public DisplayInfo() {
-		super();
-	}
-	public DisplayInfo(int id, int productId, String openingHours, String placeName, String placeLot,
-			String placeStreet, String tel, String homepage, String email, Date createDate, Date modifyDate) {
-		super();
-		this.id = id;
-		this.productId = productId;
-		this.openingHours = openingHours;
-		this.placeName = placeName;
-		this.placeLot = placeLot;
-		this.placeStreet = placeStreet;
-		this.tel = tel;
-		this.homepage = homepage;
-		this.email = email;
-		this.createDate = createDate;
-		this.modifyDate = modifyDate;
-	}
+	
 	public int getId() {
 		return id;
 	}
