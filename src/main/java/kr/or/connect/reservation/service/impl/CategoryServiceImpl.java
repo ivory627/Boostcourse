@@ -20,7 +20,6 @@ public class CategoryServiceImpl implements CategoryService {
 	@Transactional
 	public List<Category> getCategories() {
 		List<Category> categoryList = categoryDao.getCategories();
-		System.out.println(categoryList);
 		return categoryList;
 	}
 

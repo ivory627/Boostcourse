@@ -17,6 +17,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import kr.or.connect.reservation.dto.Category;
 import kr.or.connect.reservation.dto.DisplayInfo;
+import kr.or.connect.reservation.dto.Product;
 import kr.or.connect.reservation.dto.Promotion;
 import kr.or.connect.reservation.dto.ReservationUserComment;
 import kr.or.connect.reservation.service.CategoryService;
@@ -50,10 +51,14 @@ public class ReservationApiController {
 		@ApiResponse(code=500,message="Exception")
 	})
 	@GetMapping("/displayinfos")
-	public List<DisplayInfo> displayInfoList(@RequestParam(name="categoryId",required=false,defaultValue="0")int categoryId, @RequestParam(name="start", required=false, defaultValue="0") int start){
-		List<DisplayInfo> displayInfoList = new ArrayList<DisplayInfo>();
+	public Map<String,Object> displayInfoList(@RequestParam(name="categoryId",required=false,defaultValue="0")int categoryId, @RequestParam(name="start", required=false, defaultValue="0") int start){
+		List<Product> ProductList = new ArrayList<Product>();
 		
-		return displayInfoList;
+		Map<String,Object> map = new HashMap<String,Object>();
+//		map.put("totalCount", );
+//		map.put("productCount", value);
+//		map.put("products", value);
+		return map;
 	}
 	
 	@ApiOperation(value="프로모션 목록 구하기")
