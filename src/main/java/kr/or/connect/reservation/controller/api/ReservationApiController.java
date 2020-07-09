@@ -21,6 +21,8 @@ import kr.or.connect.reservation.dto.Product;
 import kr.or.connect.reservation.dto.Promotion;
 import kr.or.connect.reservation.dto.ReservationUserComment;
 import kr.or.connect.reservation.service.CategoryService;
+import kr.or.connect.reservation.service.ProductService;
+import kr.or.connect.reservation.service.PromotionService;
 
 @RestController
 @RequestMapping(path="/api")
@@ -28,6 +30,10 @@ public class ReservationApiController {
 	
 	@Autowired
 	private CategoryService categoryService;
+	@Autowired
+	private ProductService productService;
+	@Autowired
+	private PromotionService promotionService;
 	
 	@ApiOperation(value="카테고리 목록 구하기")
 	@ApiResponses({//Response Message에 대한 Swagger설명
@@ -52,12 +58,13 @@ public class ReservationApiController {
 	})
 	@GetMapping("/displayinfos")
 	public Map<String,Object> displayInfoList(@RequestParam(name="categoryId",required=false,defaultValue="0")int categoryId, @RequestParam(name="start", required=false, defaultValue="0") int start){
-		List<Product> ProductList = new ArrayList<Product>();
+		List<Product> ProductList = productService.getProducts(categoryId,start);
+		int totalCount = productService.getCount(categoryId);
 		
 		Map<String,Object> map = new HashMap<String,Object>();
-//		map.put("totalCount", );
-//		map.put("productCount", value);
-//		map.put("products", value);
+		map.put("totalCount", totalCount);
+		map.put("productCount", ProductList.size());
+		map.put("products", ProductList);
 		return map;
 	}
 	
@@ -67,10 +74,14 @@ public class ReservationApiController {
 		@ApiResponse(code=500,message="Exception")
 	})
 	@GetMapping("/promotions")
-	public List<Promotion> promotionList(){
-		List<Promotion> promotionList = new ArrayList<Promotion>();
+	public Map<String,Object> promotionList(){
+		List<Promotion> promotionList = promotionService.getPromotions();
 		
-		return promotionList;
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("size", promotionList.size());
+		map.put("items", promotionList);
+		
+		return map;
 	}
 	
 	@ApiOperation(value="전시정보 구하기")
