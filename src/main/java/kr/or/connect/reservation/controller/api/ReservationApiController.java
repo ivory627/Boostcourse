@@ -1,6 +1,5 @@
 package kr.or.connect.reservation.controller.api;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,11 +15,14 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import kr.or.connect.reservation.dto.Category;
-import kr.or.connect.reservation.dto.DisplayInfo;
+import kr.or.connect.reservation.dto.DisplayInfoImage;
 import kr.or.connect.reservation.dto.Product;
+import kr.or.connect.reservation.dto.ProductImage;
+import kr.or.connect.reservation.dto.ProductPrice;
 import kr.or.connect.reservation.dto.Promotion;
 import kr.or.connect.reservation.dto.ReservationUserComment;
 import kr.or.connect.reservation.service.CategoryService;
+import kr.or.connect.reservation.service.CommentService;
 import kr.or.connect.reservation.service.ProductService;
 import kr.or.connect.reservation.service.PromotionService;
 
@@ -34,6 +36,8 @@ public class ReservationApiController {
 	private ProductService productService;
 	@Autowired
 	private PromotionService promotionService;
+	@Autowired
+	private CommentService commentService;
 	
 	@ApiOperation(value="카테고리 목록 구하기")
 	@ApiResponses({//Response Message에 대한 Swagger설명
@@ -89,11 +93,21 @@ public class ReservationApiController {
 		@ApiResponse(code=200,message="OK"),
 		@ApiResponse(code=500,message="Exception")
 	})
-	@GetMapping("/displayinfos/{displayId}")
-	public DisplayInfo displayInfo(@PathVariable(name="displayId")int displayId){
-		DisplayInfo displayInfo = new DisplayInfo();
+	@GetMapping("/displayinfos/{displayInfoId}")
+	public  Map<String,Object> displayInfo(@PathVariable(name="displayInfoId")int displayInfoId){
+		Product product = productService.getProductByDisplayInfoId(displayInfoId);
+		List<ProductImage> productImageList = productService.getProductImages(product.getId());
+		List<DisplayInfoImage> displayInfoImageList = productService.getDisplayInfoImages(displayInfoId);
+		List<ProductPrice> productPriceList = productService.getProductPrices(product.getId());
+		int avgScore = commentService.getAvgScore(product.getId());
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("product", product);
+		map.put("productImages", productImageList);
+		map.put("displayInfoImages", displayInfoImageList);
+		map.put("avgScore", avgScore);
+		map.put("productPrices", productPriceList);
 		
-		return displayInfo;
+		return map;
 	}
 	
 	@ApiOperation(value="댓글 목록 구하기")
@@ -102,10 +116,16 @@ public class ReservationApiController {
 		@ApiResponse(code=500,message="Exception")
 	})
 	@GetMapping("/comments")
-	public List<ReservationUserComment> commentList(@RequestParam(name="productId", required=false)int productId,@RequestParam(name="start", required=false)int start){
-		List<ReservationUserComment> commentList = new ArrayList<ReservationUserComment>();
+	public Map<String,Object> commentList(@RequestParam(name="productId", required=false)int productId,@RequestParam(name="start", required=false)int start){
+		List<ReservationUserComment> commentList = commentService.getComments(productId,start);
+		int totalCount = commentService.getCount(productId);
 		
-		return commentList;
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("totalCount", totalCount);
+		map.put("commentCount", commentList.size());
+		map.put("reservationUserComments", commentList);
+		
+		return map;
 	}
 
 }

@@ -2,6 +2,8 @@ package kr.or.connect.reservation.dto;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class DisplayInfo {
 	private int id;
 	private int productId;
@@ -12,7 +14,9 @@ public class DisplayInfo {
 	private String tel;
 	private String homepage;
 	private String email;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.0")
 	private Date createDate;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.0")
 	private Date modifyDate;
 	
 	public int getId() {

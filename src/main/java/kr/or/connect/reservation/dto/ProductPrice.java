@@ -3,13 +3,17 @@ package kr.or.connect.reservation.dto;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class ProductPrice {
 	private int id;
 	private int productId;
 	private String priceTypeName;
 	private int price;
 	private BigDecimal discountRate;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.0")
 	private Date createDate;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.0")
 	private Date modifyDate;
 	
 	public int getId() {

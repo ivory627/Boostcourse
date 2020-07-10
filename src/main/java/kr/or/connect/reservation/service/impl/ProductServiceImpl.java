@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import kr.or.connect.reservation.dao.ProductDao;
+import kr.or.connect.reservation.dto.DisplayInfoImage;
 import kr.or.connect.reservation.dto.Product;
+import kr.or.connect.reservation.dto.ProductImage;
+import kr.or.connect.reservation.dto.ProductPrice;
 import kr.or.connect.reservation.service.ProductService;
 
 @Service
@@ -17,7 +19,6 @@ public class ProductServiceImpl implements ProductService {
 	private ProductDao productDao;
 
 	@Override
-	@Transactional
 	public List<Product> getProducts(Integer categoryId,Integer start) {
 		
 		List<Product> productList;
@@ -38,6 +39,26 @@ public class ProductServiceImpl implements ProductService {
 		}else {
 			return productDao.getCount(categoryId);			
 		}
+	}
+
+	@Override
+	public Product getProductByDisplayInfoId(int displayInfoId) {
+		return productDao.getProductByDisplayInfoId(displayInfoId);
+	}
+
+	@Override
+	public List<ProductImage> getProductImages(int id) {
+		return productDao.getProductImages(id);
+	}
+
+	@Override
+	public List<DisplayInfoImage> getDisplayInfoImages(int displayInfoId) {
+		return productDao.getDisplayInfoImages(displayInfoId);
+	}
+
+	@Override
+	public List<ProductPrice> getProductPrices(int id) {
+		return productDao.getProductPrices(id);
 	}
 
 }
