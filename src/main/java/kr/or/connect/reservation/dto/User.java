@@ -10,6 +10,19 @@ public class User {
 	private String phone;
 	private Date create_date;
 	private Date modify_date;
+	
+	public User() {
+		create_date = new Date();
+		modify_date = new Date();
+	}
+	
+	public User(int id, String name, String password, String email, String phone) {
+		this();
+		this.name = name;
+		this.password = password;
+		this.email = email;
+		this.phone = phone;
+	}
 
 	public int getId() {
 		return id;
