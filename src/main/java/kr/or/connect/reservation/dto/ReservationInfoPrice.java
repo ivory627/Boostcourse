@@ -5,7 +5,6 @@ public class ReservationInfoPrice {
 	private int reservationInfoId;
 	private int productPriceId;
 	private int count;
-	
 	public int getId() {
 		return id;
 	}
@@ -35,6 +34,4 @@ public class ReservationInfoPrice {
 		return "ReservationInfoPrice [id=" + id + ", reservationInfoId=" + reservationInfoId + ", productPriceId="
 				+ productPriceId + ", count=" + count + "]";
 	}
-	
-	
 }

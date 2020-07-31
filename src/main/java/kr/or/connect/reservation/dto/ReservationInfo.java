@@ -1,16 +1,18 @@
 package kr.or.connect.reservation.dto;
 
 import java.util.Date;
+import java.util.List;
 
 public class ReservationInfo {
 	private int id;
 	private int productId;
+	private int cancelFlag;
 	private int displayInfoId;
 	private int userId;
 	private Date reservationDate;
-	private int cancelFlag;
 	private Date createDate;
 	private Date modifyDate;
+	private List<ReservationInfoPrice> prices;
 	
 	public int getId() {
 		return id;
@@ -23,6 +25,12 @@ public class ReservationInfo {
 	}
 	public void setProductId(int productId) {
 		this.productId = productId;
+	}
+	public int getCancelFlag() {
+		return cancelFlag;
+	}
+	public void setCancelFlag(int cancelFlag) {
+		this.cancelFlag = cancelFlag;
 	}
 	public int getDisplayInfoId() {
 		return displayInfoId;
@@ -42,12 +50,6 @@ public class ReservationInfo {
 	public void setReservationDate(Date reservationDate) {
 		this.reservationDate = reservationDate;
 	}
-	public int getCancelFlag() {
-		return cancelFlag;
-	}
-	public void setCancelFlag(int cancelFlag) {
-		this.cancelFlag = cancelFlag;
-	}
 	public Date getCreateDate() {
 		return createDate;
 	}
@@ -60,11 +62,17 @@ public class ReservationInfo {
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
 	}
+	public List<ReservationInfoPrice> getPrices() {
+		return prices;
+	}
+	public void setPrices(List<ReservationInfoPrice> prices) {
+		this.prices = prices;
+	}
 	@Override
 	public String toString() {
-		return "ReservationInfo [id=" + id + ", productId=" + productId + ", displayInfoId=" + displayInfoId
-				+ ", userId=" + userId + ", reservationDate=" + reservationDate + ", cancelFlag=" + cancelFlag
-				+ ", createDate=" + createDate + ", modifyDate=" + modifyDate + "]";
+		return "ReservationInfo [id=" + id + ", productId=" + productId + ", cancelFlag=" + cancelFlag
+				+ ", displayInfoId=" + displayInfoId + ", userId=" + userId + ", reservationDate=" + reservationDate
+				+ ", createDate=" + createDate + ", modifyDate=" + modifyDate + ", prices=" + prices + "]";
 	}
 	
 }
